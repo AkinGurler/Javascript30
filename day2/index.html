@@ -25,7 +25,7 @@
         const seconds =now.getSeconds();
         const minute=now.getMinutes();
         const hour=now.getHours();
-        console.log(minute)
+        
         const secondDegrees=((seconds/60)*360)+90;
         const minuteDegrees=((minute/60)*360)+90
         const hourDegrees=((hour/60)*360)+90
@@ -33,6 +33,7 @@
         minuteHand.style.transform=`rotate(${minuteDegrees}deg)`
         hourHand.style.transform=`rotate(${hourDegrees}deg)`
     }
+    /* every 1 second run setDate */
     setInterval(setDate,1000);//work setDate every second
 </script>
 </body>
