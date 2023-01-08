@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding JavaScript's Capture</title>
+</head>
+<body class="bod">
+
+  <div class="one">
+    <div class="two">
+      <div class="three">
+      </div>
+    </div>
+  </div>
+
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after { 
+    box-sizing: inherit; 
+  }
+
+  div {
+    width: 100%;
+    padding: 100px;
+  }
+
+  .one {
+    background: thistle;
+  }
+
+  .two {
+    background: mistyrose;
+  }
+
+  .three {
+    background: coral;
+  }
+</style>
+
+<button></button>
+<script>
+  const divs=document.querySelectorAll("div")
+  function logText(e) {
+    console.log(this.classList.value)
+    /* e.stopPropagation(); */ /* it will stop the bubbling */
+  }
+  
+  divs.forEach(div=>div.addEventListener("click",logText,{
+    /* capture it goes down to the bottom and catches it from there and bubbling to upper, catches the elements we call real, and starts to catch it before it goes to the bottom.
+*/
+    capture:false,
+    /* when unbind is true it will remove the click element it works one time */
+    once:true
+    
+   
+  }));
+
+
+</script>
+</body>
+</html>
